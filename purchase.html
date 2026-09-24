@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ご注文内容の確認｜ピュアモルト チタンスコップ</title>
+<meta name="description" content="ピュアモルト チタンスコップのご注文内容の確認画面です。モデル・販売価格（税込）・送料・お支払い合計、お支払い・お届け・返品の条件をご確認のうえ、Stripeの決済画面へお進みください。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/purchase.css">
+</head>
+<body class="page-purchase">
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+  <div class="container checkout-page">
+
+    <nav class="breadcrumb checkout-page__crumb" aria-label="パンくずリスト">
+      <ol>
+        <li><a href="index.html">トップ</a></li>
+        <li><a href="product.html?model=kensaki" data-href-product="kensaki" class="js-product-link">商品詳細</a></li>
+        <li><span aria-current="page">ご注文内容の確認</span></li>
+      </ol>
+    </nav>
+
+    <ol class="steps steps--indicator checkout-steps" aria-label="ご購入の手順">
+      <li class="step is-done"><span class="step__num">1</span>商品を選ぶ</li>
+      <li class="step is-current" aria-current="step"><span class="step__num">2</span>内容の確認</li>
+      <li class="step"><span class="step__num">3</span>お支払い<span class="nowrap">（Stripe）</span></li>
+      <li class="step"><span class="step__num">4</span>完了</li>
+    </ol>
+
+    <header class="checkout-head">
+      <p class="eyebrow" lang="en">ORDER CONFIRMATION</p>
+      <h1 class="display-2 checkout-head__title">ご注文内容の確認</h1>
+      <p class="checkout-head__lead">ご注文前の最終確認画面です。モデル・金額・お支払い・お届け・返品の条件をご確認のうえ、画面下の「Stripeの決済画面へ進む」ボタンからお手続きください。</p>
+    </header>
+
+    <div class="notice notice--demo checkout-demo" id="demo-notice" role="note" hidden>
+      <strong>デモモードで表示しています</strong>
+      <p>Stripeの決済リンクが未設定のため、ボタンを押しても実際の決済・注文は行われません。デモ用の完了画面が表示されます。</p>
+    </div>
+
+    <div class="checkout">
+
+      <!-- 1. モデルの選択 -->
+      <section class="checkout__choose" id="choose" aria-labelledby="choose-title">
+        <h2 class="checkout-sec__title" id="choose-title"><span class="checkout-sec__num latin">01</span>モデルを選ぶ</h2>
+        <p class="form-hint checkout-sec__hint">モデルはこの画面で変更できます。選択に合わせて、ご注文内容の金額も切り替わります。</p>
+        <div class="model-choice" role="radiogroup" aria-labelledby="choose-title">
+          <label class="radio-card model-choice__card" data-model-card="kensaki">
+            <input type="radio" name="model" value="kensaki" checked>
+            <span class="radio-card__media"><span class="frame frame--4x5"><img src="assets/img/kensaki-studio.jpg" alt="ピュアモルト チタンスコップ 剣先の商品イメージ" width="1208" height="1500" loading="lazy" decoding="async"></span></span>
+            <span class="radio-card__body">
+              <span class="radio-card__title"><span data-bind="products.kensaki.variantLabel">剣先</span> <span class="latin model-choice__en" data-bind="products.kensaki.variantEn">KENSAKI</span></span>
+              <span class="radio-card__meta" data-bind="products.kensaki.catch">硬い地盤に、鋭く入る。</span>
+              <span class="radio-card__price"><span data-price="kensaki">¥39,800</span><small class="model-choice__tax">（税込）</small></span>
+            </span>
+          </label>
+          <label class="radio-card model-choice__card" data-model-card="kaku">
+            <input type="radio" name="model" value="kaku">
+            <span class="radio-card__media"><span class="frame frame--4x5"><img src="assets/img/kaku-studio.jpg" alt="ピュアモルト チタンスコップ 角の商品イメージ" width="1208" height="1500" loading="lazy" decoding="async"></span></span>
+            <span class="radio-card__body">
+              <span class="radio-card__title"><span data-bind="products.kaku.variantLabel">角</span> <span class="latin model-choice__en" data-bind="products.kaku.variantEn">KAKU</span></span>
+              <span class="radio-card__meta" data-bind="products.kaku.catch">すくう、ならす、運ぶ。</span>
+              <span class="radio-card__price"><span data-price="kaku">¥42,800</span><small class="model-choice__tax">（税込）</small></span>
+            </span>
+          </label>
+        </div>
+        <p class="img-note">※画像はイメージです。実際の商品とは異なる場合があります。</p>
+        <p class="checkout__back-top"><a class="link-arrow js-product-link" href="product.html?model=kensaki" data-href-product="kensaki">商品詳細に戻る</a></p>
+      </section>
+
+      <!-- 2. お支払い・お届け・返品の条件 -->
+      <section class="checkout__terms" id="terms" aria-labelledby="terms-title">
+        <h2 class="checkout-sec__title" id="terms-title"><span class="checkout-sec__num latin">02</span>お支払い・お届け・返品について</h2>
+        <p class="form-hint checkout-sec__hint">ご注文前に必ずご確認ください。お支払い・お届け・返品の条件は以下のとおりです。</p>
+        <dl class="terms-list">
+          <div class="terms-list__row">
+            <dt>お支払い方法</dt>
+            <dd data-bind="policies.paymentMethods">クレジットカード（Visa／Mastercard／JCB／American Express／Diners Club／Discover）、Apple Pay、Google Pay（お支払い画面に表示される方法からお選びいただけます）</dd>
+          </div>
+          <div class="terms-list__row">
+            <dt>お支払い時期</dt>
+            <dd data-bind="policies.paymentTiming">ご注文時（Stripeの決済画面でお支払いが完了した時点）に決済されます。カード代金の引き落とし日は各カード会社の規定によります。</dd>
+          </div>
+          <div class="terms-list__row">
+            <dt>商品の発送時期</dt>
+            <dd data-bind="policies.deliveryTiming">ご注文確定後、5営業日以内に発送いたします。</dd>
+          </div>
+          <div class="terms-list__row">
+            <dt>送料</dt>
+            <dd><span data-bind="shipping.label">全国送料無料</span><span class="terms-list__sub" data-bind="shipping.note">※離島など一部地域は別途ご案内となる場合があります。</span></dd>
+          </div>
+          <div class="terms-list__row terms-list__row--strong" id="policy-returns">
+            <dt>返品<span class="nowrap">（お客様都合）</span></dt>
+            <dd data-bind="policies.returns">商品到着後8日以内、未使用品に限り返品を承ります。お客様都合による返品の送料はお客様のご負担となります。</dd>
+          </div>
+          <div class="terms-list__row terms-list__row--strong">
+            <dt>不良品・誤配送</dt>
+            <dd data-bind="policies.defective">不良品・誤配送の場合は、商品到着後8日以内にご連絡ください。当社負担で交換または返金いたします。</dd>
+          </div>
+          <div class="terms-list__row terms-list__row--strong">
+            <dt>ご注文のキャンセル</dt>
+            <dd data-bind="policies.cancellation">発送前のご注文はキャンセルを承ります。お問い合わせ先までご連絡ください。発送後のキャンセルは返品の扱いとなります。</dd>
+          </div>
+          <div class="terms-list__row">
+            <dt>その他の費用</dt>
+            <dd data-bind="policies.otherFees">商品代金・送料以外に必要な料金はありません。</dd>
+          </div>
+          <div class="terms-list__row">
+            <dt>お問い合わせ先</dt>
+            <dd>
+              <span class="terms-list__pair">販売事業者：<span data-bind="seller.name">【要入力】</span></span>
+              <span class="terms-list__pair">メール：<span data-bind="seller.email">【要入力】</span></span>
+              <span class="terms-list__pair">受付時間：<span data-bind="seller.hours">【要入力】</span></span>
+            </dd>
+          </div>
+        </dl>
+        <ul class="terms-links">
+          <li><a class="link-arrow" href="tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記<span class="sr-only">（新しいタブで開きます）</span></a></li>
+          <li><a class="link-arrow" href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー<span class="sr-only">（新しいタブで開きます）</span></a></li>
+        </ul>
+        <p class="footnote terms-links__note">※上記のリンクは新しいタブで開きます。この画面の選択内容はそのまま残ります。</p>
+      </section>
+
+      <!-- 3. ご注文内容（デスクトップでは右列に固定） -->
+      <aside class="checkout__summary" id="summary" aria-labelledby="summary-title">
+        <div class="summary card">
+          <h2 class="checkout-sec__title summary__title" id="summary-title"><span class="checkout-sec__num latin">03</span>ご注文内容</h2>
+
+          <dl class="summary__list" aria-live="polite">
+            <div class="summary__row summary__row--item">
+              <dt>商品名</dt>
+              <dd><span class="summary__name" data-summary="name">ピュアモルト チタンスコップ 剣先</span></dd>
+            </div>
+            <div class="summary__row">
+              <dt>モデル</dt>
+              <dd><span data-summary="variant">剣先</span> <span class="latin summary__en" data-summary="variantEn">KENSAKI</span></dd>
+            </div>
+            <div class="summary__row">
+              <dt>数量</dt>
+              <dd>1点<span class="summary__qty-note">（数量はStripeのお支払い画面で最大<span data-bind="maxQuantity">10</span>点まで<span class="nowrap">変更できます</span>）</span></dd>
+            </div>
+            <div class="summary__row">
+              <dt>販売価格<span class="nowrap">（税込）</span></dt>
+              <dd class="summary__yen"><span data-summary="price">¥39,800</span><small>（税込）</small></dd>
+            </div>
+            <div class="summary__row">
+              <dt>送料</dt>
+              <dd class="summary__yen"><span data-summary="shipping">¥0</span><small data-summary="shippingLabel">（全国送料無料）</small></dd>
+            </div>
+            <div class="summary__row summary__row--total">
+              <dt>お支払い合計<span class="nowrap">（1点の場合）</span></dt>
+              <dd class="summary__total"><span data-summary="total">¥39,800</span><small>（税込）</small></dd>
+            </div>
+          </dl>
+          <p class="summary__qty-foot">2点以上ご注文の場合は、Stripeのお支払い画面で数量を変更すると、合計金額（税込）が表示されます。</p>
+
+          <p class="summary__nobooze">ウイスキー・酒類は含まれません。お届けするのはスコップ本体のみです。</p>
+
+          <div class="summary__terms">
+            <p class="summary__term"><span class="summary__term-label">返品</span><span data-bind="policies.returns">商品到着後8日以内、未使用品に限り返品を承ります。お客様都合による返品の送料はお客様のご負担となります。</span></p>
+            <p class="summary__term"><span class="summary__term-label">キャンセル</span><span data-bind="policies.cancellation">発送前のご注文はキャンセルを承ります。お問い合わせ先までご連絡ください。発送後のキャンセルは返品の扱いとなります。</span></p>
+            <p class="summary__term"><span class="summary__term-label">発送</span><span data-bind="policies.deliveryTiming">ご注文確定後、5営業日以内に発送いたします。</span></p>
+            <p class="summary__term-more"><a href="#terms">お支払い方法・時期、不良品の対応など、すべての条件を見る</a></p>
+          </div>
+
+          <p class="summary__change">
+            <a class="link-arrow" href="#choose">モデルを変更する</a>
+            <a class="link-arrow js-product-link" href="product.html?model=kensaki" data-href-product="kensaki">戻る（商品詳細へ）</a>
+          </p>
+
+          <div class="confirm">
+            <label class="checkbox confirm__agree">
+              <input type="checkbox" id="agree" name="agree" aria-describedby="agree-hint">
+              <span><a href="tokushoho.html" target="_blank" rel="noopener">特定商取引法に基づく表記<span class="sr-only">（新しいタブで開きます）</span></a>・<a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー<span class="sr-only">（新しいタブで開きます）</span></a>・<a href="#policy-returns">返品条件</a>を確認しました</span>
+            </label>
+            <p class="form-hint form-hint--warn confirm__hint" id="agree-hint">ボタンを押すには、上の確認欄にチェックを入れてください。</p>
+
+            <p class="confirm__fix" id="checkout-note">次のStripe決済画面で「支払う」を押した時点でご注文が確定します。</p>
+            <a class="btn btn--primary btn--lg btn--block confirm__btn" id="checkout-btn" href="thanks.html?demo=1&amp;model=kensaki" aria-disabled="true" aria-describedby="checkout-note agree-hint"><span>Stripeの<span class="nowrap">決済画面へ進む</span></span><span class="btn__arrow" aria-hidden="true">→</span></a>
+            <noscript><p class="notice notice--demo">ご購入手続きにはJavaScriptを有効にしてください。</p></noscript>
+            <p class="confirm__external"><span class="confirm__ext-icon" aria-hidden="true">↗</span>外部サイト（Stripe）に移動します</p>
+            <p class="confirm__demo" id="demo-inline" hidden>デモモードのため、実際の決済・注文は行われません。</p>
+            <p class="confirm__secure">決済はStripeの安全な決済画面で行います。カード情報が当サイトに保存されることはありません。</p>
+            <p class="confirm__address">お届け先・ご連絡先は、Stripeのお支払い画面でご入力いただきます。</p>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/purchase.js"></script>
+</body>
+</html>

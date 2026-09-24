@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ご購入ありがとうございます｜ピュアモルト チタンスコップ</title>
+<meta name="description" content="ピュアモルト チタンスコップのご購入完了ページです。領収メール、発送のご連絡、お届けの目安についてご案内します。">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/purchase.css">
+</head>
+<body class="page-thanks">
+<a class="skip-link" href="#main">本文へスキップ</a>
+<header id="site-header" class="site-header"></header>
+<main id="main">
+  <div class="container container--narrow thanks-page">
+
+    <div class="notice notice--demo thanks-demo" role="alert" data-demo-only hidden>
+      <strong class="notice__title">デモ表示</strong>
+      <p>Stripeの決済リンクが未設定のため、実際の決済・注文は行われていません。</p>
+      <p class="thanks-demo__sub">この画面は、購入完了画面の表示を確認するためのデモです。公開前に config.js へStripeの決済リンクを設定してください。</p>
+    </div>
+
+    <ol class="steps steps--indicator checkout-steps" aria-label="ご購入の手順">
+      <li class="step is-done"><span class="step__num">1</span>商品を選ぶ</li>
+      <li class="step is-done"><span class="step__num">2</span>内容の確認</li>
+      <li class="step is-done"><span class="step__num">3</span>お支払い<span class="nowrap">（Stripe）</span></li>
+      <li class="step is-current" aria-current="step"><span class="step__num">4</span>完了</li>
+    </ol>
+
+    <header class="thanks-head text-center">
+      <p class="eyebrow text-center" lang="en">THANK YOU</p>
+      <h1 class="display-2 thanks-head__title" id="thanks-title">ご購入<wbr>ありがとうございます</h1>
+      <p class="thanks-head__lead" data-live-only>ご注文ありがとうございます。Stripeでのお手続きを受け付けました。<br class="only-desktop">お支払い・ご注文の内容は、Stripeから届くメールでご確認ください。<br class="only-desktop">このたびはピュアモルト チタンスコップをお選びいただき、誠にありがとうございます。</p>
+      <p class="thanks-head__lead" data-demo-only hidden>実際のご購入時には、この画面でご購入のお礼と今後の流れをご案内します。</p>
+      <p class="thanks-head__model" id="thanks-model" hidden>ご注文モデル：<span id="thanks-model-name"></span></p>
+    </header>
+
+    <section class="thanks-next" aria-labelledby="next-title">
+      <h2 class="checkout-sec__title" id="next-title">今後の流れ</h2>
+      <ol class="thanks-steps">
+        <li class="thanks-steps__item card">
+          <span class="thanks-steps__num latin">01</span>
+          <h3 class="thanks-steps__title">Stripeからの領収メール</h3>
+          <p>お支払い完了後、Stripeの決済画面でご入力いただいたメールアドレス宛てに、お支払い内容を記載した領収メールが届きます。</p>
+        </li>
+        <li class="thanks-steps__item card">
+          <span class="thanks-steps__num latin">02</span>
+          <h3 class="thanks-steps__title">発送のご連絡</h3>
+          <p>商品を発送いたしましたら、メールにてご連絡いたします。</p>
+        </li>
+        <li class="thanks-steps__item card">
+          <span class="thanks-steps__num latin">03</span>
+          <h3 class="thanks-steps__title">お届けの目安</h3>
+          <p data-bind="policies.deliveryTiming">ご注文確定後、5営業日以内に発送いたします。</p>
+          <p class="footnote" data-bind="shipping.note">※離島など一部地域は別途ご案内となる場合があります。</p>
+        </li>
+      </ol>
+      <p class="footnote thanks-next__note">メールが見当たらない場合は、迷惑メールフォルダもあわせてご確認ください。それでも届かない場合は、お手数ですが下記までお問い合わせください。</p>
+    </section>
+
+    <section class="thanks-contact card" aria-labelledby="contact-title">
+      <h2 class="checkout-sec__title" id="contact-title">お問い合わせ</h2>
+      <dl class="terms-list thanks-contact__list">
+        <div class="terms-list__row">
+          <dt>販売事業者</dt>
+          <dd><span data-bind="seller.name">【要入力】</span></dd>
+        </div>
+        <div class="terms-list__row">
+          <dt>メールアドレス</dt>
+          <dd><span data-bind="seller.email" id="seller-email">【要入力】</span></dd>
+        </div>
+        <div class="terms-list__row">
+          <dt>受付時間</dt>
+          <dd><span data-bind="seller.hours">【要入力】</span></dd>
+        </div>
+      </dl>
+      <p class="footnote thanks-contact__note">ご注文内容の変更・キャンセル・返品については、<a href="tokushoho.html">特定商取引法に基づく表記</a>をご確認ください。</p>
+    </section>
+
+    <div class="actions actions--center thanks-actions">
+      <a class="btn btn--primary" href="index.html">トップページへ戻る<span class="btn__arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" id="thanks-back-purchase" href="purchase.html" data-demo-only hidden>ご注文内容の確認に戻る</a>
+    </div>
+
+  </div>
+</main>
+<footer id="site-footer" class="site-footer"></footer>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/thanks.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+/* ==========================================================================
+   index.css — LP（index.html）専用スタイル
+   共通クラスは style.css。ここではページ固有の細部のみを定義します。
+   ========================================================================== */
+
+/* ---------- Headings: avoid one-character orphans ---------- */
+/* Chrome/Edge: phrase-aware Japanese line breaking; others fall back to normal wrapping */
+.page-index .display-2,
+.page-index .hero__title,
+.page-index .section__head .lead { word-break: auto-phrase; }
+@supports (word-break: auto-phrase) {
+  .page-index .display-2 { text-wrap: balance; }
+}
+
+/* ---------- Hero ---------- */
+.page-index .hero__title .ti-text { padding-right: .04em; }
+.page-index .hero__ship {
+  flex-basis: 100%;
+  margin-top: .2em;
+  font-size: .8125rem;
+  color: var(--ti-3);
+  letter-spacing: .1em;
+}
+@media (min-width: 480px) {
+  .page-index .hero__ship { flex-basis: auto; margin-top: 0; padding-left: .9em; border-left: 1px solid var(--line-strong); }
+}
+
+/* ---------- Concept ---------- */
+.concept { overflow: hidden; }
+.concept::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  width: 1px; height: clamp(48px, 7vw, 96px);
+  background: linear-gradient(180deg, var(--ti-2), transparent);
+  transform: translateX(-50%);
+  opacity: .5;
+}
+.concept__body p:not(.lead) { color: var(--text-dim); line-height: 2.05; }
+.concept__sign {
+  margin-top: clamp(40px, 6vw, 64px);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-style: italic;
+  color: var(--ti-2);
+  letter-spacing: .04em;
+}
+
+/* ---------- Performance ---------- */
+.performance__grid { row-gap: clamp(40px, 5vw, 56px); }
+.performance__grid .num { white-space: nowrap; }
+.performance__grid .num__label { white-space: normal; }
+.num--word small { font-family: var(--font-latin); font-size: .42em; font-weight: 500; letter-spacing: 0; color: inherit; margin-left: .02em; }
+.num--word small sub { font-size: .6em; vertical-align: -.25em; line-height: 0; }
+.num__sep { font-family: var(--font-latin); font-size: .6em; vertical-align: .35em; margin: 0 .08em; color: var(--amber); }
+.feature__text sup { font-size: .7em; color: var(--text-dim); margin-left: .1em; }
+
+/* ---------- Titanium / Cork ---------- */
+.page-index .split .display-2 {
+  font-size: clamp(1.5rem, 1.05rem + 1.7vw, 2.375rem);
+}
+.titanium__facts { color: var(--ti-3); }
+.titanium__facts li { padding-block: .15em; }
+.cork__media { max-width: 520px; width: 100%; justify-self: center; }
+.cork__caption { margin-top: 1em; }
+.cork__notice { margin: 0; }
+.cork__caption .img-note { margin-top: .75em; }
+.cork sup, #titanium sup { font-size: .7em; color: var(--text-dim); }
+
+/* ---------- Lineup ---------- */
+.lineup__grid { align-items: stretch; }
+.lineup-card { display: flex; flex-direction: column; }
+.lineup-card__media { display: block; }
+.lineup-card__media .frame { border-radius: 0; }
+.lineup-card__body { display: flex; flex-direction: column; gap: .9em; flex: 1; }
+.lineup-card__body > * { margin: 0; }
+.lineup-card__en {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  color: var(--ti-2);
+}
+.lineup-card__ja {
+  margin-left: .6em;
+  font-family: var(--font-display);
+  font-size: .8125rem;
+  letter-spacing: .12em;
+  color: var(--amber-hi);
+}
+.lineup-card__catch {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--ti-3);
+}
+.lineup-card__uses {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: .8em; align-items: start;
+  font-size: .875rem; color: var(--text-dim); line-height: 1.9;
+}
+.lineup-card__uses .badge { margin: .2em 0 0; vertical-align: 0; }
+.lineup-card .price { margin-top: auto; padding-top: .6em; }
+.lineup-card__actions .btn { flex: 1 1 10em; }
+.lineup-card .img-note { margin-top: 0; }
+
+/* ---------- Field ---------- */
+.field__list { display: grid; gap: clamp(56px, 8vw, 104px); }
+.field__item { display: grid; gap: clamp(20px, 3vw, 28px); margin: 0; }
+.field__caption { display: flex; flex-direction: column; gap: .6em; max-width: 34rem; }
+.field__caption > * { margin: 0; }
+.field__label { font-size: 1rem; font-weight: 600; letter-spacing: .22em; color: var(--ti-2); }
+.field__label span { margin-left: .6em; font-family: var(--font-display); font-size: .8125rem; letter-spacing: .12em; color: var(--amber-hi); }
+@media (min-width: 900px) {
+  .field__item { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); align-items: end; gap: clamp(40px, 5vw, 72px); }
+  .field__item--reverse { grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); }
+  .field__item--reverse .frame { order: 2; }
+  .field__caption { padding-bottom: .5em; }
+}
+
+/* ---------- Spec ---------- */
+#spec .compare-table td { color: var(--text); }
+#spec .compare-table tbody th { width: 30%; }
+#spec .compare-table thead td { border-bottom: 1px solid var(--line-strong); }
+#spec .compare-table td[colspan] { text-align: center; }  /* shared by both models */
+#spec tbody tr:nth-child(even) { background: rgba(255, 255, 255, .015); }
+/* mobile: fit both models on screen instead of scrolling sideways */
+@media (max-width: 600px) {
+  #spec .compare-table { min-width: 0; font-size: .8125rem; line-height: 1.65; }
+  #spec .compare-table th, #spec .compare-table td { padding: .85em .5em; }
+  #spec .compare-table tbody th { white-space: normal; width: 26%; }
+  #spec .compare-table thead th { font-size: .9375rem; letter-spacing: .1em; }
+}
+
+/* ---------- FAQ ---------- */
+.faq-answer > * + * { margin-top: .6em; }
+.faq-answer a { color: var(--ti-3); }
+.faq-answer a:hover { color: var(--amber-hi); }
+.faq-answer strong { color: var(--text); font-weight: 700; }
+.faq-answer .faq-dl { display: grid; grid-template-columns: auto 1fr; gap: .2em 1em; margin: 0; }
+.faq-answer .faq-dl dt { color: var(--ti-3); font-weight: 500; white-space: nowrap; }
+.faq-answer .faq-dl dd { margin: 0; }
+
+/* ---------- Closing CTA ---------- */
+.cta-band .display-2 { margin-bottom: .6em; }
+.cta-band__price {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .2em .5em;
+  margin-top: 1.4em; color: var(--text-dim); font-size: .875rem; letter-spacing: .06em;
+}
+.cta-band__price [data-price] { font-family: var(--font-latin); font-size: 2rem; font-weight: 500; color: var(--amber-hi); }
+.cta-band .footnote { margin-top: 1.2em; }
+.cta-band .footnote a { color: var(--ti-3); text-decoration-color: var(--ti-2); white-space: nowrap; }
+
+/* ---------- Flow: stacked full-width actions on small phones ---------- */
+@media (max-width: 479px) {
+  #flow .actions { flex-direction: column; align-items: stretch; gap: 18px; }
+  #flow .actions .btn { width: 100%; }
+  #flow .actions .link-arrow { align-self: center; }
+}
