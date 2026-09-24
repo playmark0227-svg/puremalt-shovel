@@ -328,3 +328,20 @@ LP/
   2. Stripe の「支払い後」の戻り先URL・「商取引に関する開示」・プライバシーポリシーのURLを公開URLで登録する（→ 6）
   3. 公開したサイトからテスト購入を行う
 - README.md は公開しなくてもかまいません（アップロードしても、サイトの表示には影響しません）。
+
+### 10-1. GitHub Pages でのプレビュー（設定済み）
+
+- **プレビューURL**：https://playmark0227-svg.github.io/puremalt-shovel/
+- **リポジトリ**：https://github.com/playmark0227-svg/puremalt-shovel （公開リポジトリ。URLを知っている人はページとソースを見られます。各ページに `noindex` を入れているため、検索結果には表示されません）
+- LP フォルダがそのままリポジトリになっています。Git の管理データは、Google ドライブの同期と衝突しないよう `~/.git-repos/puremalt-shovel.git` に置き、LP フォルダには参照用の `.git` ファイルだけがあります（このファイルは削除しないでください）。
+- `.nojekyll` は GitHub Pages にファイルをそのまま配信させるための空ファイルです。削除しないでください。
+- **更新の反映**：ファイルを編集したら、ターミナルで LP フォルダに移動して次を実行します。1〜2分ほどでプレビューURLに反映されます。
+
+  ```sh
+  git add -A
+  git commit -m "変更内容のメモ"
+  git push
+  ```
+
+- Stripe のテスト用決済リンクを作る場合、支払い後の戻り先は `https://playmark0227-svg.github.io/puremalt-shovel/thanks.html?model=kensaki`（角は `model=kaku`）を指定できます（→ 6-1）。
+- 本番のドメインで公開する場合は、そのドメインに合わせて Stripe の戻り先URLや `og:image` を設定し直してください。
